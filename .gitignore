@@ -1,0 +1,7 @@
+.env
+__pycache__/
+*.pyc
+stato.json
+venv/
+registro.json
+lezioni.json
