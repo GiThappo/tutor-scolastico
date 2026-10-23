@@ -46,6 +46,8 @@ Poi chiedi all'utente (con AskUserQuestion o con una domanda breve) quali impegn
 
 ## 5. Inserisci il piano in Google Calendar
 
+**Se esiste `~/Scuola/app.env`** lo studente usa l'app scuola, che fa da sola il piano di studio e lo scrive in Calendar (eventi `[Tutor]` creati dall'app). In quel caso salta questa sezione: non creare, spostare o cancellare blocchi di studio né eventi delle prove. Nel report, alla sezione 7, scrivi i consigli di studio e rimanda alla scheda Studio dell'app (indirizzo in `APP_URL` dentro `app.env`), dove lo studente può spostare i blocchi.
+
 - Per ogni blocco di studio crea un evento con `create_event` (calendario principale, nessun invitato):
   `summary` = `[Tutor] <Materia>: <cosa>`, `description` = dettagli (pagine, esercizi, per quale prova).
 - Per ogni verifica o interrogazione crea un evento `allDay`: `[Tutor] VERIFICA <Materia>` / `[Tutor] INTERROGAZIONE <Materia>`, con gli argomenti nella descrizione.
