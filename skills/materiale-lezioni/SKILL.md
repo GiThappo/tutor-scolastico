@@ -72,4 +72,12 @@ Salva lo stato, così la prossima volta sai cosa è nuovo:
 ~/Scuola/venv/bin/python ~/.claude/skills/materiale-lezioni/scripts/lezioni.py --salva-stato > /dev/null
 ```
 
+Se esiste `~/Scuola/app.env` e contiene `APP_DIR` (la cartella dell'app scuola sul PC), carica nell'app le schede e i file appena scritti (pagina di ogni materia):
+
+```
+bash -c 'source ~/Scuola/app.env && node "$APP_DIR/scripts/carica-materiale.mjs"'
+```
+
+Lo script carica solo i file nuovi o cambiati (schede, PDF, appunti e recap). Se fallisce, dillo nella risposta: il lavoro sul PC resta valido.
+
 Rispondi in chat con poche righe: per ogni materia le schede create o aggiornate e i file scaricati, con il percorso della cartella. Se ci sono verifiche in arrivo (vedi la skill registro-giornaliero), dì quali schede ripassare per prime.

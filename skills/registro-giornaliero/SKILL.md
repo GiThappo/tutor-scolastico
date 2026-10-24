@@ -94,4 +94,12 @@ Salva lo stato, così il prossimo controllo saprà cosa è nuovo:
 ~/Scuola/venv/bin/python ~/.claude/skills/registro-giornaliero/scripts/scarica_registro.py --salva-stato > /dev/null
 ```
 
+Se esiste `~/Scuola/app.env` e contiene `APP_DIR` (la cartella dell'app scuola sul PC), carica nell'app il report appena scritto (scheda Recap) e il materiale:
+
+```
+bash -c 'source ~/Scuola/app.env && node "$APP_DIR/scripts/carica-materiale.mjs"'
+```
+
+Lo script carica solo i file nuovi o cambiati (schede, PDF, appunti e recap). Se fallisce, dillo nella risposta: il lavoro sul PC resta valido.
+
 Poi rispondi in chat con poche righe: il percorso del report, le 2–3 cose più importanti di oggi e quanti eventi hai creato o modificato in calendario.
