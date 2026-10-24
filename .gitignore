@@ -5,3 +5,5 @@ stato.json
 venv/
 registro.json
 lezioni.json
+.superpowers/
+senza-claude-code/chat/
