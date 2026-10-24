@@ -9,6 +9,12 @@ Due skill per [Claude Code](https://claude.com/claude-code) che trasformano Clau
 
 Le skill parlano in italiano e funzionano anche se le chiedi a parole ("fammi il report di oggi", "cosa abbiamo fatto di storia questa settimana?").
 
+## L'app per il telefono
+
+Se vuoi agenda, voti e piano di studio sempre a portata di mano, anche **senza Claude**, c'è [App Scuola](https://github.com/GiThappo/app-scuola): una web app che crei gratis nel tuo account Cloudflare. Scarica il registro da sola, fa il piano di studio intorno ai tuoi impegni e lo mette in Google Calendar. Il repo è un modello: il README spiega passo passo come creare la tua.
+
+Se hai l'app, `/registro-giornaliero` non crea più i blocchi di studio in Calendar (li fa l'app) e ti rimanda alla scheda Studio.
+
 ## Requisiti
 
 - Python 3.11 o più recente
@@ -39,6 +45,8 @@ Poi:
 
 Con Claude Code le skill fanno tutto da sole: scaricano il registro, scrivono il report, salvano le schede e riempiono il calendario.
 Con la versione gratuita di [claude.ai](https://claude.ai), Claude non può leggere i file del tuo computer né collegarsi a Classeviva. Quindi lanci tu lo script e gli dai il risultato.
+
+**Il modo più semplice** è la cartella [`senza-claude-code/`](senza-claude-code/): uno script che scarica il registro, ti chiede gli impegni e copia negli appunti un messaggio pronto da incollare su claude.ai. Istruzioni nel suo [LEGGIMI](senza-claude-code/LEGGIMI.md). I passaggi qui sotto servono se vuoi usare le skill complete.
 
 1. **Installa solo la parte Python** (basta farlo una volta):
 
