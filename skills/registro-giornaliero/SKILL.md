@@ -21,7 +21,7 @@ Se il login fallisce, fermati e dillo: le credenziali stanno in `~/Scuola/.env` 
 ## 2. Interpreta l'agenda
 
 - **Orario ufficiale**: leggi `~/Scuola/orario.md`. Vale più di `orario_tipico`, che è solo ricostruito dal registro e può sbagliare.
-- In questa classe le voci di agenda hanno la **data del giorno in cui il prof le scrive**. Per i compiti la scadenza è quindi la **prossima lezione di quella materia** (usa `~/Scuola/orario.md` e `calendario_scolastico`). Per le verifiche e le interrogazioni la data della voce è di solito **il giorno della prova**. Se il testo dà una data esplicita, vale quella.
+- In questa classe le voci di agenda hanno la **data del giorno in cui vanno consegnate**, non di quando il prof le scrive: un compito datato lunedì è per lunedì, una verifica è datata al giorno della prova. Se il testo dà una data esplicita, vale quella.
 - `materia` viene ricavata dal docente. Se ne contiene più di una (es. "A / B"), scegli in base al testo e all'orario.
 - `sembra_verifica_o_interrogazione` è solo un indizio basato su parole chiave: leggi sempre il testo.
 - Guarda anche `lezioni_oggi[].argomento`: dice cosa si è fatto in classe e cosa ripassare.
