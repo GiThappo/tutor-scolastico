@@ -118,6 +118,10 @@ Il piano gratuito ha un limite di messaggi: se il `.json` è molto lungo, usa un
 - `skills/materiale-lezioni/scripts/lezioni.py` ha una tabella `CARTELLE` che traduce i nomi delle materie di Classeviva in nomi di cartella brevi. Aggiungi le tue materie se mancano.
 - Le regole per il piano di studio (finestra 15:00–19:30, tempi stimati per esercizi e ripassi) sono nel `SKILL.md` di `registro-giornaliero`: cambiale come preferisci.
 
+## Aggiornamenti
+
+Cosa è cambiato e cosa fare se usi già il tutor: [AGGIORNAMENTI.md](AGGIORNAMENTI.md).
+
 ## Licenza
 
 MIT

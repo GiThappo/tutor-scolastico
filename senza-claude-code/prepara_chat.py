@@ -33,7 +33,7 @@ Come voglio il piano di studio:
 - Prima i compiti per domani, poi la preparazione delle prove in arrivo, poi il ripasso delle materie deboli (media sotto 6 o in calo).
 - Tempi indicativi: un esercizio di matematica 5-8 min, una pagina di teoria 10 min; per un'interrogazione 45-60 min al giorno nei 3 giorni prima; per una verifica scritta 60 min al giorno nei 4 giorni prima, più gli esercizi.
 - Distribuisci lo studio per le prove sui giorni prima, mai tutto l'ultimo giorno. La sera prima solo un ripasso leggero.
-- Le voci di agenda hanno la data del giorno in cui il prof le scrive: per i compiti la scadenza è la prossima lezione di quella materia (guarda l'orario). Per verifiche e interrogazioni la data è di solito il giorno della prova.
+- Le voci di agenda hanno la data del giorno in cui vanno consegnate, non di quando il prof le scrive: un compito datato lunedì è per lunedì, una verifica è datata al giorno della prova. Se il testo dà una data esplicita, vale quella.
 - Segui anche le regole scritte sotto l'orario.
 - Se il tempo non basta, dimmelo chiaramente e proponi cosa tagliare o anticipare.
 
