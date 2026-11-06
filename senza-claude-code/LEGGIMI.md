@@ -5,6 +5,8 @@ Tu lo incolli in una chat di [claude.ai](https://claude.ai) (va bene anche il pi
 
 ## Cosa serve
 
+> **Età minima:** le [condizioni di Claude per chi vive in UE](https://www.anthropic.com/legal/consumer-terms) richiedono almeno 18 anni, anche per il piano gratuito, e vietano di condividere l'account. Se hai meno di 18 anni puoi usare [App Scuola](https://github.com/GiThappo/app-scuola), che funziona senza Claude.
+
 - Un computer con **Python 3.10 o più recente** ([python.org/downloads](https://www.python.org/downloads/)). Su Windows, durante l'installazione spunta "Add Python to PATH".
 - Il tuo **nome utente e la tua password di Classeviva**, gli stessi del sito o dell'app.
 - Un account su claude.ai.

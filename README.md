@@ -17,6 +17,8 @@ Se hai l'app, `/registro-giornaliero` non crea più i blocchi di studio in Calen
 
 ## Requisiti
 
+> **Età minima:** le [condizioni di Claude per chi vive in UE](https://www.anthropic.com/legal/consumer-terms) richiedono almeno 18 anni, anche per il piano gratuito, e vietano di condividere l'account. Se hai meno di 18 anni puoi usare [App Scuola](https://github.com/GiThappo/app-scuola), che funziona senza Claude.
+
 - Python 3.11 o più recente
 - Un account Classeviva da studente
 - **Claude Code**, che richiede un piano Claude a pagamento (Pro o superiore) oppure una chiave API. Con Claude Code è tutto automatico. Senza, si può usare la versione gratuita di claude.ai facendo a mano qualche passaggio: vedi [Senza Claude a pagamento](#senza-claude-a-pagamento).
