@@ -119,7 +119,8 @@ Solo se è installata anche la skill `materiale-lezioni` (`~/.claude/skills/mate
 Per ogni materia con lezioni `nuova` che sono spiegazioni (non verifiche, non Scienze motorie e Religione):
 - se in `~/Scuola/materiale/<Materia>/argomenti/` c'è già un argomento che copre la lezione e la lezione non aggiunge niente, vai avanti; se aggiunge qualcosa, aggiorna quell'argomento;
 - altrimenti scrivi PDF e super riassunto seguendo il **passo 4 di `materiale-lezioni`** (cerca le fonti come al suo passo 3), **senza fare domande**: niente richiesta di appunti in questo momento, usa quelli già in `appunti/`;
-- se l'`argomento` del registro è vuoto, ricavalo da appunti, compiti e voci dell'agenda di quei giorni e dai file in `fonti/`. Se non si capisce, non inventare: aggiungi al report la domanda "Cosa avete fatto in <materia> il <data>?" e fai il PDF quando arriva la risposta o al prossimo giro.
+- se l'`argomento` del registro è vuoto, ricavalo da appunti, compiti e voci dell'agenda di quei giorni e dai file in `fonti/`. Se non si capisce, non inventare: aggiungi al report la domanda "Cosa avete fatto in <materia> il <data>?" e scrivi in cima a `~/Scuola/materiale/<Materia>/lezioni.md` la riga `AAAA-MM-GG – DA CHIEDERE: argomento non scritto sul registro`. Quando lo studente risponde, sostituisci la riga con l'argomento e fai il PDF.
+- a ogni giro cerca anche le righe `DA CHIEDERE` nei `lezioni.md`: quelle lezioni non risultano più nuove (lo stato è già salvato), quindi è l'unico modo per non perderle. Rifai la domanda nel report finché non c'è risposta.
 
 Poi salva lo stato delle lezioni, così `/materiale-lezioni` non le rifà:
 
