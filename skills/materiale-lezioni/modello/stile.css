@@ -30,3 +30,6 @@ ol.domande .risposta { font-weight: 400; margin-top: 2pt; }
 .fonti { font-size: 10pt; color: #444; }
 .fonti p { text-align: left; }
 img { max-width: 100%; }
+pre { font-family: "DejaVu Sans Mono", "Noto Sans Mono", monospace; font-size: 9.5pt; line-height: 1.35; background: var(--riga); border: 1px solid var(--bordo); padding: 7pt 10pt; white-space: pre-wrap; break-inside: avoid; margin: 6pt 0 10pt; }
+code { font-family: "DejaVu Sans Mono", "Noto Sans Mono", monospace; font-size: 0.9em; }
+td.centro, th.centro { text-align: center; }
