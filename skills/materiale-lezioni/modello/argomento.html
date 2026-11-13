@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<!-- Il <title> finisce nel piè di pagina di ogni pagina: "Titolo — sottotitolo breve" -->
+<title>Titolo dell'argomento — in breve</title>
+<link rel="stylesheet" href="stile.css">
+</head>
+<body>
+<!--
+  MODELLO del PDF di un argomento. Ordine fisso delle sezioni:
+  1. titolo e filo conduttore  2. corpo a paragrafi (con riquadri e tabelle dove servono)
+  3. glossario  4. approfondimento (facoltativo)  5. domande di ripasso con risposta
+  6. tabella finale con tutte le cose  7. super riassunto  8. fonti
+  Corpo e riassunto sono SEMPRE frasi in paragrafi: niente elenchi puntati.
+  Togli solo le sezioni che per l'argomento non hanno senso. Cancella questi commenti.
+-->
+
+<h1>Titolo dell'argomento</h1>
+<p class="sottotitolo">Sottotitolo: periodo, capitolo del libro o ambito — scheda di studio</p>
+
+<p>Due o tre frasi che dicono come è organizzato il PDF: segue l'ordine del libro o delle lezioni, racconta non solo cosa succede ma perché, e alla fine ci sono la tabella con tutte le cose, il super riassunto e le domande di ripasso.</p>
+
+<div class="riquadro filo">
+  <div class="titolo">Il filo conduttore in una frase</div>
+  <p>La frase da portarsi via: il concetto che tiene insieme tutto l'argomento, detto in modo che resti in testa al primo colpo.</p>
+</div>
+
+<!-- 2. CORPO: un h2 per ogni passaggio (fase, tappa, parte del metodo), h3 per i sottopassaggi -->
+<h2>1. Primo passaggio</h2>
+<p>Un piccolo riassunto in prosa del passaggio: <strong>quando</strong>, <strong>dove</strong>, <strong>chi</strong> e soprattutto <strong>perché</strong> succede, e che collegamento ha con quello che viene dopo. Nelle materie tecniche: quando si usa, dove si applica, perché funziona, con un esempio svolto.</p>
+
+<h3>Un sottopassaggio</h3>
+<p>Altre frasi brevi, con le parole importanti in grassetto e spiegate la prima volta che compaiono.</p>
+
+<div class="riquadro">
+  <div class="titolo">Errore tipico</div>
+  <p>Le due cose che si confondono e come tenerle distinte.</p>
+</div>
+
+<div class="riquadro trucco">
+  <div class="titolo">Trucco per ricordare</div>
+  <p>Un'associazione, una coppia da non confondere, un'iniziale da ricordare.</p>
+</div>
+
+<!-- Tabella dentro il corpo solo quando serve davvero: confronti, elenchi di opere, strutture -->
+<table>
+  <thead><tr><th>Colonna</th><th>Colonna</th><th>Trucco</th></tr></thead>
+  <tbody><tr><td>…</td><td>…</td><td>…</td></tr></tbody>
+</table>
+
+<h2>2. Secondo passaggio</h2>
+<p>…</p>
+
+<!-- 3. GLOSSARIO delle parole difficili -->
+<h2>Glossario</h2>
+<dl class="glossario">
+  <dt>Parola</dt><dd>Spiegazione in una frase semplice.</dd>
+</dl>
+
+<!-- 4. APPROFONDIMENTO (facoltativo: solo se il libro o le lezioni ne hanno uno) -->
+<h2>Approfondimento: titolo</h2>
+<p>…</p>
+
+<!-- 5. DOMANDE DI RIPASSO con la risposta subito sotto -->
+<h2>Domande di ripasso (con risposta)</h2>
+<p><em>Copri la risposta e prova a rispondere da solo prima di guardare.</em></p>
+<ol class="domande">
+  <li>Domanda come la farebbe il prof?<div class="risposta">Risposta in una o due frasi.</div></li>
+</ol>
+
+<!-- 6. TABELLA FINALE con tutte le cose: date, nomi, opere, concetti (o passaggi del metodo) -->
+<h2 class="nuova-pagina">Tutto in una tabella</h2>
+<table>
+  <thead><tr><th>Cosa</th><th>Quando / dove</th><th>Perché conta</th></tr></thead>
+  <tbody><tr><td>…</td><td>…</td><td>…</td></tr></tbody>
+</table>
+
+<!-- 7. SUPER RIASSUNTO: lo stesso testo del file .md, paragrafi in prosa con le parole chiave in grassetto -->
+<h2>Il super riassunto</h2>
+<div class="riassunto">
+  <p><strong>Prima tappa con la data</strong>, in una frase che racconta cosa succede e perché. <strong>Seconda tappa</strong>…</p>
+</div>
+
+<!-- 8. FONTI -->
+<h2>Fonti</h2>
+<div class="fonti">
+  <p>Appunti usati, pagine del libro, file in fonti/, link.</p>
+</div>
+</body>
+</html>

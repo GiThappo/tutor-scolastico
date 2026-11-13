@@ -1,0 +1,32 @@
+/* Stile dei PDF degli argomenti. Copialo accanto all'HTML dell'argomento (in argomenti/.sorgenti/). */
+@page { size: A4; margin: 18mm 18mm 20mm; }
+:root { --blu: #1f3a5f; --rosso: #b03a2e; --verde: #2e7d4f; --carta: #f6f1e7; --riga: #f9f6ef; --bordo: #d9d2c3; }
+* { box-sizing: border-box; }
+html { font-size: 12pt; }
+body { margin: 0; font-family: "DejaVu Serif", "Noto Serif", Georgia, serif; line-height: 1.45; color: #1d1d1d; }
+h1, h2, h3, .riquadro .titolo, th, .sottotitolo, footer { font-family: "DejaVu Sans", "Noto Sans", Arial, sans-serif; }
+h1 { color: var(--blu); font-size: 26pt; margin: 0 0 2pt; }
+.sottotitolo { color: #666; font-style: italic; margin: 0 0 14pt; }
+h2 { color: var(--blu); font-size: 17pt; margin: 22pt 0 6pt; break-after: avoid; }
+h3 { color: var(--rosso); font-size: 13pt; margin: 14pt 0 4pt; break-after: avoid; }
+p { margin: 0 0 8pt; text-align: justify; hyphens: auto; }
+strong { color: #000; }
+.riquadro { background: var(--carta); border-left: 4px solid var(--rosso); padding: 8pt 12pt; margin: 10pt 0; break-inside: avoid; font-size: 11pt; }
+.riquadro .titolo { font-weight: 700; font-size: 10.5pt; margin-bottom: 4pt; }
+.riquadro p:last-child { margin-bottom: 0; }
+.riquadro.filo { border-left-color: var(--blu); }
+.riquadro.trucco { border-left-color: var(--verde); }
+table { width: 100%; border-collapse: collapse; margin: 8pt 0 12pt; font-size: 10.5pt; }
+th { background: var(--blu); color: #fff; text-align: left; padding: 5pt 7pt; font-size: 10pt; }
+td { border: 1px solid var(--bordo); padding: 5pt 7pt; vertical-align: top; }
+tr { break-inside: avoid; }
+tbody tr:nth-child(even) td { background: var(--riga); }
+dl.glossario dt { font-weight: 700; margin-top: 6pt; }
+dl.glossario dd { margin: 0 0 0 14pt; }
+ol.domande > li { margin-bottom: 8pt; break-inside: avoid; font-weight: 700; }
+ol.domande .risposta { font-weight: 400; margin-top: 2pt; }
+.riassunto p { text-align: left; }
+.nuova-pagina { break-before: page; }
+.fonti { font-size: 10pt; color: #444; }
+.fonti p { text-align: left; }
+img { max-width: 100%; }
