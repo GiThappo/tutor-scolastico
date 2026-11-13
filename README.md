@@ -5,7 +5,7 @@ Due skill per [Claude Code](https://claude.com/claude-code) che trasformano Clau
 | Skill | Cosa fa |
 |---|---|
 | `/registro-giornaliero` | Legge il registro (voti, agenda, lezioni, note), scrive il report del giorno in `~/Scuola/report/`, calcola le medie e le tendenze per materia, trova verifiche e interrogazioni in arrivo e pianifica lo studio in Google Calendar in base ai tuoi impegni del pomeriggio. |
-| `/materiale-lezioni` | Guarda cosa si è fatto a lezione in ogni materia, ti chiede gli appunti, cerca e scarica materiale affidabile dal web e scrive una scheda di studio per ogni argomento in `~/Scuola/materiale/<Materia>/`. |
+| `/materiale-lezioni` | Guarda cosa si è fatto a lezione in ogni materia, ti chiede gli appunti, cerca e scarica materiale affidabile dal web e scrive per ogni argomento un PDF di studio (paragrafi, errori tipici, glossario, domande di ripasso, tabella finale) e un super riassunto in `~/Scuola/materiale/<Materia>/argomenti/`. Il report del giorno li prepara da solo quando sul registro compare un argomento nuovo. |
 
 Le skill parlano in italiano e funzionano anche se le chiedi a parole ("fammi il report di oggi", "cosa abbiamo fatto di storia questa settimana?").
 
@@ -45,7 +45,7 @@ Poi:
 
 ## Senza Claude a pagamento
 
-Con Claude Code le skill fanno tutto da sole: scaricano il registro, scrivono il report, salvano le schede e riempiono il calendario.
+Con Claude Code le skill fanno tutto da sole: scaricano il registro, scrivono il report, preparano i PDF degli argomenti e riempiono il calendario.
 Con la versione gratuita di [claude.ai](https://claude.ai), Claude non può leggere i file del tuo computer né collegarsi a Classeviva. Quindi lanci tu lo script e gli dai il risultato.
 
 **Il modo più semplice** è la cartella [`senza-claude-code/`](senza-claude-code/): uno script che scarica il registro, ti chiede gli impegni e copia negli appunti un messaggio pronto da incollare su claude.ai. Istruzioni nel suo [LEGGIMI](senza-claude-code/LEGGIMI.md). I passaggi qui sotto servono se vuoi usare le skill complete.
@@ -106,7 +106,7 @@ Il piano gratuito ha un limite di messaggi: se il `.json` è molto lungo, usa un
         ├── appunti/     i tuoi appunti
         ├── fonti/       PDF e link scaricati
         ├── dal-prof/    materiale caricato dai prof su Classeviva
-        └── schede/      una scheda per argomento
+        └── argomenti/   PDF + super riassunto per argomento
 ```
 
 ## Privacy

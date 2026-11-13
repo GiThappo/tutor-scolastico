@@ -108,6 +108,27 @@ Per ognuna leggi `testo.txt` (se è vuoto il PDF è una scansione: leggi il PDF)
 
 Quando la voce è salvata cancella la sua cartella in `da_riassumere`. Se c'è qualcosa da fare entro pochi giorni, mettilo anche nel report.
 
+## 6c. Prepara gli argomenti nuovi
+
+Solo se è installata anche la skill `materiale-lezioni` (`~/.claude/skills/materiale-lezioni/`). Lo studente non deve chiedere niente: quando sul registro compare un argomento nuovo, il PDF di studio e il super riassunto li prepari tu.
+
+```
+~/Scuola/venv/bin/python ~/.claude/skills/materiale-lezioni/scripts/lezioni.py
+```
+
+Per ogni materia con lezioni `nuova` che sono spiegazioni (non verifiche, non Scienze motorie e Religione):
+- se in `~/Scuola/materiale/<Materia>/argomenti/` c'è già un argomento che copre la lezione e la lezione non aggiunge niente, vai avanti; se aggiunge qualcosa, aggiorna quell'argomento;
+- altrimenti scrivi PDF e super riassunto seguendo il **passo 4 di `materiale-lezioni`** (cerca le fonti come al suo passo 3), **senza fare domande**: niente richiesta di appunti in questo momento, usa quelli già in `appunti/`;
+- se l'`argomento` del registro è vuoto, ricavalo da appunti, compiti e voci dell'agenda di quei giorni e dai file in `fonti/`. Se non si capisce, non inventare: aggiungi al report la domanda "Cosa avete fatto in <materia> il <data>?" e fai il PDF quando arriva la risposta o al prossimo giro.
+
+Poi salva lo stato delle lezioni, così `/materiale-lezioni` non le rifà:
+
+```
+~/Scuola/venv/bin/python ~/.claude/skills/materiale-lezioni/scripts/lezioni.py --salva-stato > /dev/null
+```
+
+In fondo al report aggiungi la sezione `8. ARGOMENTI NUOVI`: materia – argomento – "PDF e riassunto pronti" (o la domanda, se manca l'argomento).
+
 ## 7. Chiudi
 
 Salva lo stato, così il prossimo controllo saprà cosa è nuovo:
@@ -122,6 +143,6 @@ Se esiste `~/Scuola/app.env` e contiene `APP_DIR` (la cartella dell'app scuola s
 bash -c 'source ~/Scuola/app.env && node "$APP_DIR/scripts/carica-materiale.mjs"'
 ```
 
-Lo script carica solo i file nuovi o cambiati (schede, PDF, appunti e recap). Se fallisce, dillo nella risposta: il lavoro sul PC resta valido.
+Lo script carica solo i file nuovi o cambiati (argomenti, PDF, appunti e recap). Se fallisce, dillo nella risposta: il lavoro sul PC resta valido.
 
 Poi rispondi in chat con poche righe: il percorso del report, le 2–3 cose più importanti di oggi e quanti eventi hai creato o modificato in calendario.
