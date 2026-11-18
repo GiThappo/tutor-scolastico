@@ -70,6 +70,12 @@ async def main():
     note = await utente.note()
     calendario = await utente.calendario_da_a(oggi.isoformat(), (oggi + timedelta(days=21)).isoformat())
     agenda = await utente.agenda_da_a((oggi - timedelta(days=7)).isoformat(), (oggi + timedelta(days=30)).isoformat())
+    # Sezione "Compiti" di Classeviva: diversa dall'agenda, alcuni prof scrivono i compiti solo lì
+    try:
+        compiti = await utente.compiti()
+    except Exception as e:
+        print(f"Sezione Compiti non disponibile: {e}", file=sys.stderr)
+        compiti = None
     lezioni_oggi = await utente.lezioni_giorno(oggi.isoformat())
     lezioni_recenti = await utente.lezioni_da_a(
         max(inizio_anno_scolastico(oggi), oggi - timedelta(days=21)).isoformat(), oggi.isoformat()
@@ -131,6 +137,23 @@ async def main():
             "nuovo": e["evtId"] not in set(stato.get("agenda_vista", [])) and not primo_controllo,
         })
 
+    compiti_visti = set(stato.get("compiti_visti", []))
+    lista_compiti = [
+        {
+            "id": h["evtId"],
+            "assegnato": h["assignmentDate"],
+            "consegna": h["expiryDate"],
+            "materia": h["subjectDesc"],
+            "docente": h["teacherName"],
+            "testo": (h["homeworkDesc"] or "").strip(),
+            "file_del_prof": [f.get("fileName") or f.get("name") for f in h.get("teacherFiles") or []],
+            "link_del_prof": h.get("teacherLinks") or [],
+            "nuovo": h["evtId"] not in compiti_visti and not primo_controllo,
+        }
+        for h in sorted(compiti or [], key=lambda h: (h["expiryDate"] or "", h["evtId"]))
+        if h["subjectDesc"] not in MATERIE_NON_DIDATTICHE and (h["expiryDate"] or "") >= (oggi - timedelta(days=7)).isoformat()
+    ]
+
     risultato = {
         "oggi": oggi.isoformat(),
         "giorno_settimana": GIORNI[oggi.weekday()],
@@ -146,6 +169,7 @@ async def main():
             for l in sorted(lezioni_oggi, key=lambda l: l["evtHPos"]) if l["subjectDesc"] not in MATERIE_NON_DIDATTICHE
         ],
         "agenda": eventi,
+        "compiti": lista_compiti if compiti is not None else None,
         "materie": riepilogo,
         "note_disciplinari": {k: v for k, v in note.items() if v},
     }
@@ -157,6 +181,7 @@ async def main():
             "data": oggi.isoformat(),
             "voti_visti": sorted(v["evtId"] for v in voti),
             "agenda_vista": sorted(set(stato.get("agenda_vista", [])) | {e["evtId"] for e in agenda}),
+            "compiti_visti": sorted(compiti_visti | {h["evtId"] for h in compiti or []}),
         }))
 
 

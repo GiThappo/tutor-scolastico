@@ -13,7 +13,7 @@ Tutor scolastico per uno studente delle superiori. Classe, orario e abitudini de
 ~/Scuola/venv/bin/python ~/.claude/skills/registro-giornaliero/scripts/scarica_registro.py
 ```
 
-Lo script stampa un JSON con: `materie` (voti, `media`, `media_precedente` se ci sono voti `nuovo`), `agenda` (7 giorni indietro, 30 avanti), `lezioni_oggi`, `orario_tipico` (giorno → ora → materia, ricostruito dalle ultime settimane, quindi solo indicativo), `calendario_scolastico` (`scuola: false` = niente scuola), `periodi`, `note_disciplinari`.
+Lo script stampa un JSON con: `materie` (voti, `media`, `media_precedente` se ci sono voti `nuovo`), `agenda` (7 giorni indietro, 30 avanti), `compiti` (la sezione Compiti di Classeviva, con consegna da 7 giorni fa in poi; `null` se non ha risposto), `lezioni_oggi`, `orario_tipico` (giorno → ora → materia, ricostruito dalle ultime settimane, quindi solo indicativo), `calendario_scolastico` (`scuola: false` = niente scuola), `periodi`, `note_disciplinari`.
 `nuovo: true` vuol dire che non c'era al controllo precedente. Se `primo_controllo` è true, niente è "nuovo": in quel caso il report dice che questo è il punto di partenza.
 
 Se il login fallisce, fermati e dillo: le credenziali stanno in `~/Scuola/.env` (CLASSEVIVA_UTENTE / CLASSEVIVA_PASSWORD). Non stamparle mai.
@@ -22,6 +22,7 @@ Se il login fallisce, fermati e dillo: le credenziali stanno in `~/Scuola/.env` 
 
 - **Orario ufficiale**: leggi `~/Scuola/orario.md`. Vale più di `orario_tipico`, che è solo ricostruito dal registro e può sbagliare.
 - Le voci di agenda hanno la **data del giorno in cui vanno consegnate**, non di quando il prof le scrive: un compito datato lunedì è per lunedì, una verifica è datata al giorno della prova. Se il testo dà una data esplicita, vale quella.
+- **Sezione Compiti.** Oltre all'agenda, Classeviva ha una sezione Compiti separata (`compiti`): alcuni prof scrivono i compiti solo lì. Ogni voce ha `consegna` (il giorno in cui va fatto) e `assegnato`. Uniscila all'agenda: per ogni giorno, i compiti delle due fonti stanno insieme. Se la stessa cosa è sia in agenda sia in Compiti, scrivila una volta sola. Se `compiti` è `null`, scrivi nel report che la sezione Compiti non ha risposto.
 - `materia` viene ricavata dal docente. Se ne contiene più di una (es. "A / B"), scegli in base al testo e all'orario.
 - `sembra_verifica_o_interrogazione` è solo un indizio basato su parole chiave: leggi sempre il testo.
 - Guarda anche `lezioni_oggi[].argomento`: dice cosa si è fatto in classe e cosa ripassare.
@@ -36,7 +37,7 @@ Poi chiedi all'utente (con AskUserQuestion o con una domanda breve) quali impegn
 ## 4. Fai i calcoli del piano di studio
 
 - Tempo libero = finestra di studio (default 15:00–19:30, o quella indicata dall'utente) meno impegni, spostamenti e una pausa di 10 min ogni ora.
-- Prima i compiti con scadenza domani, poi la preparazione per le prove in arrivo, poi il ripasso delle materie deboli.
+- Prima i compiti con consegna domani (agenda e sezione Compiti), poi la preparazione per le prove in arrivo, poi il ripasso delle materie deboli.
 - Stima i tempi: un esercizio di matematica ≈ 5–8 min, una pagina di teoria ≈ 10 min, ripasso per un'interrogazione ≈ 45–60 min al giorno nei 3 giorni prima, verifica scritta ≈ 60 min al giorno nei 4 giorni prima, più gli esercizi.
 - Distribuisci lo studio per le prove sui giorni precedenti, mai tutto l'ultimo giorno. Lascia la sera prima a un ripasso leggero.
 - Le priorità vanno a: materie con media sotto 6, materie in calo (`media` < `media_precedente`), prove vicine.
@@ -62,10 +63,12 @@ File: `~/Scuola/report/AAAA-MM-GG.txt` (testo semplice, niente markdown pesante)
 REPORT DEL <giorno> <data>
 
 1. NOVITÀ DAL REGISTRO
-   voti nuovi, nuove voci in agenda, note (o "nessuna novità dal <ultimo_controllo>")
+   voti nuovi, nuove voci in agenda e nella sezione Compiti, note (o "nessuna novità dal <ultimo_controllo>")
 
-2. COMPITI PER DOMANI (e scadenze dei prossimi giorni)
-   materia – cosa – per quando
+2. COMPITI (agenda + sezione Compiti di Classeviva, divisi per giorno di consegna)
+   OGGI: materia – cosa
+   DOMANI: materia – cosa
+   <giorno>: materia – cosa   (i prossimi giorni)
 
 3. VERIFICHE E INTERROGAZIONI IN ARRIVO
    data – materia – tipo – argomenti / pagine da studiare
