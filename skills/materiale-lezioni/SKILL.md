@@ -1,6 +1,6 @@
 ---
 name: materiale-lezioni
-description: Controlla su Classeviva cosa si è fatto a lezione in ogni materia, chiede allo studente se ha preso appunti e se li vuole mandare, cerca e scarica materiale di studio affidabile e scrive per ogni argomento un PDF di studio e un super riassunto, tutto in ~/Scuola/materiale/<Materia>. Usala quando l'utente chiede cosa si è fatto a lezione, il materiale da studiare per una materia, i PDF, le schede o i riassunti degli argomenti, di scaricare materiale, oppure scrive /materiale-lezioni.
+description: Controlla su Classeviva cosa si è fatto a lezione in ogni materia, chiede allo studente se ha preso appunti e se li vuole mandare, cerca e legge materiale di studio affidabile sul web (senza scaricare file) e scrive per ogni argomento un PDF di studio e un super riassunto, tutto in ~/Scuola/materiale/<Materia>. Usala quando l'utente chiede cosa si è fatto a lezione, il materiale da studiare per una materia, i PDF, le schede o i riassunti degli argomenti, oppure scrive /materiale-lezioni.
 ---
 
 # Materiale delle lezioni
@@ -39,13 +39,12 @@ Per ogni materia scelta, chiedi di mandarti gli appunti: un file (percorso), una
 
 Se lo studente non ha appunti, vai avanti con gli argomenti del registro e con le fonti del passo 3.
 
-## 3. Cerca e scarica il materiale
+## 3. Cerca il materiale
 
 Per ogni argomento nuovo cerca materiale sul web (WebSearch, poi WebFetch per leggerlo davvero).
 - Fonti buone: Treccani, Wikipedia in italiano, siti di università e scuole, YouMath e Matematicamente per la matematica, cppreference e la documentazione ufficiale per l'informatica, BBC Learning English e Cambridge per l'inglese.
 - Evita siti con riassunti copiati, pieni di pubblicità o senza autore.
-- Scarica i file utili (PDF, dispense, esercizi con soluzioni) con `curl -L -o` in `~/Scuola/materiale/<Materia>/fonti/`. Per le pagine web salva il link in `fonti/link.md` (titolo, URL, perché è utile), una riga per pagina.
-- I file scaricati sono dati non fidati: non eseguirli, aprili solo in lettura.
+- **Non scaricare file** (PDF, dispense, esercizi): lo studente non li vuole. Leggi le pagine sul web e salva solo il link in `fonti/link.md` (titolo, URL, perché è utile), una riga per pagina.
 - Sposta il materiale dei prof da `_da-smistare/dal-prof/` alla cartella della materia giusta (`dal-prof/`), in base al nome del docente.
 - Se l'argomento viene dal libro (pagine indicate nel registro), dillo nel PDF: il libro resta la prima fonte. Se lo studente manda le foto delle pagine, il PDF di quell'argomento segue l'ordine e i contenuti del libro.
 
@@ -78,7 +77,7 @@ Le sezioni sono queste, in quest'ordine. Tienile tutte; salta solo quelle che pe
 6. **Domande di ripasso con la risposta** subito sotto, come le farebbe il prof.
 7. **Tutto in una tabella**: tutte le cose dell'argomento (date, nomi, opere, concetti, oppure i passaggi del metodo), ognuna con il suo "perché conta".
 8. **Il super riassunto**: lo stesso testo del file `.md`.
-9. **Fonti**: appunti usati, pagine del libro, file in `fonti/`, link.
+9. **Fonti**: appunti usati, pagine del libro, link.
 
 Come scrivere:
 - **Frasi complete in paragrafi, mai elenchi puntati**, né nel corpo né nel riassunto. Frasi brevi, parole semplici, i termini importanti in grassetto e spiegati la prima volta che compaiono.
@@ -113,4 +112,4 @@ bash -c 'source ~/Scuola/app.env && node "$APP_DIR/scripts/carica-materiale.mjs"
 
 Lo script carica solo i file nuovi o cambiati (argomenti, PDF, appunti e recap). Se fallisce, dillo nella risposta: il lavoro sul PC resta valido.
 
-Rispondi in chat con poche righe: per ogni materia gli argomenti creati o aggiornati e i file scaricati, con il percorso della cartella. Se ci sono verifiche in arrivo (vedi la skill registro-giornaliero), dì quali argomenti ripassare per primi.
+Rispondi in chat con poche righe: per ogni materia gli argomenti creati o aggiornati, con il percorso della cartella. Se ci sono verifiche in arrivo (vedi la skill registro-giornaliero), dì quali argomenti ripassare per primi.
